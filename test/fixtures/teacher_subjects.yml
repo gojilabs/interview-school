@@ -1,0 +1,13 @@
+math_teacher_math:
+  teacher: math_teacher
+  subject: math
+  level: 10
+
+math_and_english_teacher_math:
+  teacher: math_and_english_teacher
+  subject: math
+  level: 8
+math_and_english_teacher_english:
+  teacher: math_and_english_teacher
+  subject: english
+  level: 9

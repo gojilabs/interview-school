@@ -1,0 +1,6 @@
+var el = document.getElementById('teacher-subject-<%= @teacher_subject.id %>')
+el.classList.add('hide');
+el.classList.remove('show');
+setTimeout(function() {
+  window.location.reload()
+}, 400);

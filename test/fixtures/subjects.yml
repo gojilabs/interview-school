@@ -1,0 +1,10 @@
+math:
+  name: Math
+  description: All about numbers
+
+english:
+  name: English
+  description: Language that everyone knows
+
+subject_without_teacher:
+  name: Subject without teacher

@@ -1,0 +1,7 @@
+<div id='new-teacher-subject'>
+  <% if @teacher.subjects.size < Subject.all.size %>
+    <%= link_to 'Add new class', new_teacher_teacher_subject_path(@teacher), remote: true %>
+  <% else %>
+    Please <%= link_to 'create new classes', new_subject_path %> so you can add to Teacher
+  <% end %>
+</div>
