@@ -11,11 +11,11 @@ This application is meant to represent a school. There are teachers, subjects th
 2. Students should be able to download a PDF of their schedule.
   - For each section include subject, start time, end time, teacher name, and classroom name
 
-## Guidelines
+## Guidelinesss
 Develop this in your own fork. After you build your models, add a few different records for each model in seeds.rb or use either factories or fixtures. Use any frotend framework you like, or feel free to use server-side rendering. Refactor or remove any existing code necessary, the code currently here is a starting point. Do not bother setting up unnecessary systems right now, like Sidekiq or Devise. Assume that every browser user is a student, so you don't need to think about user management.
 
 ## Time Constraints
-Do not spend more than 4 hours implementing the goals above. It's not mandatory that the goals above are 100% working, due to the time constraint, we're most interested in seeing your best work. Write this code as if you're contributing to a larger project with multiple developers who will critique your work. If you're running out of time and something isn't funcional yet, that's okay, make sure that whatever is functional is both complete and polished.
+Do not spend more than 4 hours implementin  g the goals above. It's not mandatory that the goals above are 100% working, due to the time constraint, we're most interested in seeing your best work. Write this code as if you're contributing to a larger project with multiple developers who will critique your work. If you're running out of time and something isn't funcional yet, that's okay, make sure that whatever is functional is both complete and polished.
 
 Thank you [Dusan Orlovic](https://blog.trk.in.rs/) for your work in building this
 
