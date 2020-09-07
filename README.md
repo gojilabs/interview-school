@@ -4,7 +4,7 @@
 Hello, for fast project up use docker & docker-compose
 `docker-compose up` will up few services:
 * App - rails backend API mode
-* UI - VueJs frontend created with VueCLI
+* UI - VueJs frontend created with VueCLI at http://localhost:3000
 * Postgres - Database
 
 Then to run sh into running docker container run command `docker-compose exec [service_name] /bin/sh`
