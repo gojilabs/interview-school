@@ -26,6 +26,7 @@ services:
       - postgres
     volumes:
       - .:/app
+      - /app/tmp
     command: bin/rails s
 
   postgres:
@@ -38,3 +39,12 @@ services:
       - postgres:/var/lib/postgresql/data
 
 
+  test:
+    image: interview-school:development
+    env_file: ./docker/test/Envfile
+    entrypoint: docker/entrypoint.sh
+    links:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/tmp

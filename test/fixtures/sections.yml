@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: sections
+#
+#  id                 :bigint           not null, primary key
+#  days               :integer          default([]), is an Array
+#  duration           :integer
+#  start_at           :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  teacher_subject_id :bigint           not null
+#
+# Indexes
+#
+#  index_sections_on_teacher_subject_id  (teacher_subject_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (teacher_subject_id => teacher_subjects.id)
+#
+
+one:
+  start_at: '10:00'
+  duration: 50
+  days: [1]
+  teacher_subject_id: 1
+
+two:
+  start_at: '20:00'
+  duration: 50
+  days: [2]
+  teacher_subject_id: 2
+
+three:
+  start_at: '19:30'
+  duration: 80
+  days: [1,2,3]
+  teacher_subject_id: 3
+
+four:
+  start_at: '18:00'
+  duration: 50
+  days: [1,2]
+  teacher_subject_id: 1
+

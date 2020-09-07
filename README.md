@@ -1,8 +1,19 @@
 # Goji Labs Inteview Take-Home Project
 
+## Development
+Hello, for fast project up use docker & docker-compose
+`docker-compose up` will up few services:
+* App - rails backend API mode
+* UI - VueJs frontend created with VueCLI
+* Postgres - Database
+
+Then to run sh into running docker container run command `docker-compose exec [service_name] /bin/sh`
+for ex: `docker-compose exec app /bin/sh` or `docker-compose exec app rails c`
+
+Run tests `docker-compose run test rails test` 
 
 ## Overview
-This application is meant to represent a school. There are teachers, subjects that they teach, and the relation between them. We want to add classrooms, students, and another model called sections. A section represents a teacher teaching a subject in a specific classroom at a specfic time with students who attend the class. Think of it like the join model between all the other entities, and with specific times. Some sections are taught only on Monday, Wednesday, and Friday, others are only taught on Tuesdays and Thursdays, and some are every day. Sections typically are 50 minutes long, but they can also be 80 minutes. The earliest sections start at 7:30am and the latest ones end at 10pm.
+This application is meant to represent a school. There are teachers, subjects that they teach, and the relation between them. We want to add classrooms, students, and another model called sections. A section represents a teacher teaching a subject in a specific classroom at a specific time with students who attend the class. Think of it like the join model between all the other entities, and with specific times. Some sections are taught only on Monday, Wednesday, and Friday, others are only taught on Tuesdays and Thursdays, and some are every day. Sections typically are 50 minutes long, but they can also be 80 minutes. The earliest sections start at 7:30am and the latest ones end at 10pm.
 
 ## Goals
 1. Students should be able to add/remove sections to their schedule
