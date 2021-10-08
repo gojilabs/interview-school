@@ -1,4 +1,4 @@
-# Goji Labs Inteview Take-Home Project
+# Goji Labs Interview Take-Home Project
 
 
 ## Overview
