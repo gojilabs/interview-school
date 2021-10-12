@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_103807) do
+ActiveRecord::Schema.define(version: 2021_10_12_025843) do
+
+  create_table "buildings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "building_id"
+    t.string "floor"
+    t.index ["building_id"], name: "index_classrooms_on_building_id"
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string "name", null: false
@@ -22,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_103807) do
   create_table "teacher_subjects", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "subject_id", null: false
-    t.integer "level"
+    t.integer "level", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_teacher_subjects_on_subject_id"
@@ -37,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_103807) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "classrooms", "buildings"
   add_foreign_key "teacher_subjects", "subjects"
   add_foreign_key "teacher_subjects", "teachers"
 end

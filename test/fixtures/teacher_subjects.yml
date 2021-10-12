@@ -11,3 +11,12 @@ math_and_english_teacher_english:
   teacher: math_and_english_teacher
   subject: english
   level: 9
+
+english_teacher_english_level_4:
+  teacher: english_teacher
+  subject: english
+  level: 4
+english_teacher_english_level_10:
+  teacher: english_teacher
+  subject: english
+  level: 4

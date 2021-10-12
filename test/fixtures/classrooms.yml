@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+quad_1a:
+  name: 'Quad 1A'
+  building: Quad
+  floor: '1st'
+
+quad_g65:
+  name: 'Quad G63'
+  building: Quad
+  floor: 'Ground'
+
+library_4c:
+  name: 'Library 4C'
+  floor: '4th'
