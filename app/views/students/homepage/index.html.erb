@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Enrolments</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class name</th>
+      <th>Teacher</th>
+      <th>Room</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student.enrolled_sections.each do |enrolled_section| %>
+      <% enrolled_section.section.times.each do |enrolled_section_times| %>
+        <tr>
+          <td><%= enrolled_section.section.teacher_subject.subject.name %></td>
+          <td><%= enrolled_section.section.teacher_subject.teacher.first_and_last_name %></td>
+          <td><%= enrolled_section_times.classroom.room_number %></td>
+          <td><%= enrolled_section_times.day %> <%= to_time_string(enrolled_section_times.start_time) %> - <%= to_time_string(enrolled_section_times.end_time) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

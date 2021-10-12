@@ -1,0 +1,5 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+brian_nguyen_math_teacher_math_one:
+  student: brian_nguyen
+  section: math_teacher_math_one

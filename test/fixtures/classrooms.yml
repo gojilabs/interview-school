@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 quad_1a:
-  name: 'Quad 1A'
+  room_number: 'A'
   building: Quad
-  floor: '1st'
+  floor: '1'
 
 quad_g65:
-  name: 'Quad G63'
+  room_number: '63'
   building: Quad
-  floor: 'Ground'
+  floor: 'G'
 
 library_4c:
-  name: 'Library 4C'
-  floor: '4th'
+  room_number: 'C'
+  floor: '4'

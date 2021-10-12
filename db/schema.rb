@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_025843) do
+ActiveRecord::Schema.define(version: 2021_10_12_044137) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
@@ -19,10 +19,45 @@ ActiveRecord::Schema.define(version: 2021_10_12_025843) do
   end
 
   create_table "classrooms", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "room_number", null: false
     t.integer "building_id"
     t.string "floor"
     t.index ["building_id"], name: "index_classrooms_on_building_id"
+  end
+
+  create_table "section_times", force: :cascade do |t|
+    t.integer "section_id", null: false
+    t.integer "classroom_id", null: false
+    t.integer "day"
+    t.integer "start_time"
+    t.integer "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_section_times_on_classroom_id"
+    t.index ["section_id"], name: "index_section_times_on_section_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer "teacher_subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_subject_id"], name: "index_sections_on_teacher_subject_id"
+  end
+
+  create_table "student_sections", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "section_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["section_id"], name: "index_student_sections_on_section_id"
+    t.index ["student_id"], name: "index_student_sections_on_student_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -51,6 +86,11 @@ ActiveRecord::Schema.define(version: 2021_10_12_025843) do
   end
 
   add_foreign_key "classrooms", "buildings"
+  add_foreign_key "section_times", "classrooms"
+  add_foreign_key "section_times", "sections"
+  add_foreign_key "sections", "teacher_subjects"
+  add_foreign_key "student_sections", "sections"
+  add_foreign_key "student_sections", "students"
   add_foreign_key "teacher_subjects", "subjects"
   add_foreign_key "teacher_subjects", "teachers"
 end

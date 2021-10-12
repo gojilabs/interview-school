@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+brian_nguyen:
+  first_name: Brian
+  last_name: Nguyen
+
+sarah_lux_lee:
+  first_name: Sarah
+  last_name: 'Lux-Lee'
+
+thomas_southworth:
+  first_name: Thomas
+  last_name: Southworth

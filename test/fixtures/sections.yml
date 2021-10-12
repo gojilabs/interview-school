@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+math_teacher_math_one:
+  teacher_subject: math_teacher_math
+
+math_teacher_math_two:
+  teacher_subject: math_teacher_math
+
+math_and_english_teacher_math_one:
+  teacher_subject: math_and_english_teacher_math
+
+math_and_english_teacher_english_one:
+  teacher_subject: math_and_english_teacher_english
+
+english_teacher_english_level_10_one:
+  teacher_subject: english_teacher_english_level_10
+
+english_teacher_english_level_4_one:
+  teacher_subject: english_teacher_english_level_4
