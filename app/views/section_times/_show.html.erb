@@ -1,0 +1,8 @@
+<tr>
+  <td>
+    <%= section_time.classroom.building&.name %> <%= section_time.classroom.floor %><%= section_time.classroom.room_number %>
+  </td>
+  <td>
+    <%= section_time.day %> <%= to_time_string(section_time.start_time) %> - <%= to_time_string(section_time.end_time) %>
+  </td>
+</tr>

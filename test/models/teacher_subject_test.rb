@@ -11,6 +11,6 @@ class TeacherSubjectTest < ActiveSupport::TestCase
   end
 
   test 'valid fixture' do
-    assert_valid_fixture teachers
+    assert_valid_fixture teacher_subjects
   end
 end

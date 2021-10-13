@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     resources :teacher_subjects, shallow: true
   end
 
+  resources :sections do
+    resources :section_times, shallow: true
+  end
+
   resources :subjects
   resources :classrooms
   root to: 'subjects#index'

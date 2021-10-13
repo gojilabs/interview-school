@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class:</strong>
+  Level <%= @section.teacher_subject.level %> <%= @section.teacher_subject.subject.name %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%=@section.teacher_subject.teacher.first_and_last_name %>
+</p>
+
+<h3>Times</h3>
+<% if @section.times.empty? %>
+  <p>No times</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Classroom</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+      <% @section.times.each do |section_time| %>
+        <%= render 'section_times/show', section_time: section_time %>
+      <% end %>
+    <tbody>
+  </table>
+<% end %>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

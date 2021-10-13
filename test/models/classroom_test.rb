@@ -5,14 +5,16 @@ class ClassroomTest < ActiveSupport::TestCase
     assert_valid_fixture classrooms
   end
 
-  test 'validate name presence' do
-    classroom = Classroom.new name: ''
+  test 'validate room_number and building presence' do
+    classroom = Classroom.new room_number: '', building: nil
     classroom.save
-    assert classroom.errors[:name].present?
+    assert classroom.errors[:room_number].present?
+    assert classroom.errors[:buiding].present?
   end
 
   test 'validate successful save' do
-    classroom = Classroom.new name: 'Quad 1A'
+    building = Building.new name: 'Quadrangle'
+    classroom = Classroom.new room_number: 'A', building: building, floor: '1'
     assert classroom.save 
   end
 end

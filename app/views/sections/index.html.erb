@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Teacher</th>
+      <th>Classes</th>
+      <th>Class Size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td>Level <%= section.teacher_subject.level %> <%= section.teacher_subject.subject.name %></td>
+        <td><%= section.teacher_subject.teacher.first_and_last_name %></td>
+        <td><%= section.times.count %></td>
+        <td><%= section.students.count %></td>
+        <td><%= link_to 'Show', section %></td>
+        <td><%= link_to 'Edit', edit_section_path(section) %></td>
+        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Section', new_section_path %>

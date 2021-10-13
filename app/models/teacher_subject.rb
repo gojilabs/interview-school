@@ -4,6 +4,8 @@ class TeacherSubject < ApplicationRecord
   belongs_to :teacher
   belongs_to :subject
 
+  has_many :sections, dependent: :destroy
+
   validates :teacher, uniqueness: {scope: :subject}, if: :_not_marked_for_destruction?
 
   validates :level, presence: true

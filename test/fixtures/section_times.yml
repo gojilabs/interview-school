@@ -21,15 +21,15 @@ math_teacher_math_one_friday:
   start_time: 540
   duration: 50
 
-english_teacher_english_level_10_one_monday:
-  section: english_teacher_english_level_10_one
+english_teacher_english_one_monday:
+  section: english_teacher_english_one
   classroom: quad_1a
   day: 1
   start_time: 570
   duration: 80
 
-english_teacher_english_level_10_one_tuesday:
-  section: english_teacher_english_level_10_one
+english_teacher_english_one_tuesday:
+  section: english_teacher_english_one
   classroom: quad_1a
   day: 2
   start_time: 570

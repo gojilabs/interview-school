@@ -4,23 +4,39 @@
 
 This application is meant to represent a school. There are teachers, subjects that they teach, and the relation between them. We want to add classrooms, students, and another model called sections. A section represents a teacher teaching a subject in a specific classroom at a specfic time with students who attend the class. Think of it like the join model between all the other entities, and with specific times. Some sections are taught only on Monday, Wednesday, and Friday, others are only taught on Tuesdays and Thursdays, and some are every day. Sections typically are 50 minutes long, but they can also be 80 minutes. The earliest sections start at 7:30am and the latest ones end at 10pm.
 
-## Goals
+## Before the interview
 
-1. Students should be able to add/remove sections to their schedule
+Before the interview begins, it would be helpful to setup the development environment in advance. You can use whatever editor you prefer.
 
-- A student cannot be in two sections that overlap
-- For instance, if I add General Chemistry 1 to my schedule, and it's on MWF from 8:00 to 8:50am, I cannot enroll in any other sections between 8:00 and 8:50am on Mondays, Wednesdays, or Fridays.
+1. Download and install Ruby 2.6.3
+2. Install bundler
 
-2. Students should be able to download a PDF of their schedule.
+```
+gem install bundler:2.0.2
+```
 
-- For each section include subject, start time, end time, teacher name, and classroom name
+3. Install yarn
 
-## Guidelines
+```
+https://classic.yarnpkg.com/lang/en/docs/install/
+```
 
-Develop this in your own fork. After you build your models, add a few different records for each model in seeds.rb or use either factories or fixtures. Use any frotend framework you like, or feel free to use server-side rendering. Refactor or remove any existing code necessary, the code currently here is a starting point. Do not bother setting up unnecessary systems right now, like Sidekiq or Devise. Assume that every browser user is a student, so you don't need to think about user management.
+4. Install dependencies
 
-## Time Constraints
+```
+bundle install
+yarn install
+```
 
-Do not spend more than 4 hours implementing the goals above. It's not mandatory that the goals above are 100% working, due to the time constraint, we're most interested in seeing your best work. Write this code as if you're contributing to a larger project with multiple developers who will critique your work. If you're running out of time and something isn't funcional yet, that's okay, make sure that whatever is functional is both complete and polished.
+5. Setup database
 
-Thank you [Goji Labs](https://gojilabs.com/)) for donating their coding test.
+```
+./bin/rails db:setup
+./bin/rails db:seed
+```
+
+## During the interview
+
+You will pair with a Mindr engineer to complete some tasks that you will likely see on an average day at Mindr. There are no right/wrong answers and we will keep going until the time runs out so don't worry if you don't finish everything.
+
+Thank you [Goji Labs](https://gojilabs.com/) for donating their coding test.
