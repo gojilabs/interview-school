@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_10_12_044137) do
     t.string "room_number", null: false
     t.integer "building_id"
     t.string "floor"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_classrooms_on_building_id"
   end
 

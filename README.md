@@ -8,6 +8,35 @@ This application is meant to represent a school. There are teachers, subjects th
 
 Before the interview begins, it would be helpful to setup the development environment in advance. You can use whatever editor you prefer.
 
+### Using Docker (recommended)
+
+To avoid issues setting up your environment, we recommend that you use Docker.
+
+1. Build the image. This can take up to 10 minutes to build, and the image is quite large so feel free to delete the image after the interview.
+
+```
+docker build . -t mindr-interview-school
+```
+
+2. Start the container
+
+```
+docker run --name interview-school -v "`pwd`:/app" --publish "3000:3000" interview-school
+```
+
+3. You should be able to visit the app via http://localhost:3000
+
+#### Useful commands
+
+_Stop container_: `docker container stop interview-school`
+_Start container_: `docker container start interview-school`
+_Run a migration_: `docker container exec interview-school ./bin/rails db:migrate`
+_Update FE deps_: `docker container exec interview-school yarn install`
+
+### Manual set up
+
+If you prefer you can setup the repository directly on your computer.
+
 1. Download and install Ruby 2.6.3
 2. Install bundler
 
