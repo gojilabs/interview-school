@@ -24,6 +24,8 @@ docker build . -t mindr-interview-school
 docker run --name interview-school -v "`pwd`/app:/src/app" -v "`pwd`/public:/src/public" -v "`pwd`/test:/src/test" -v "`pwd`/config:/src/config" -v "`pwd`/db/migrate:/src/db/migrate" --publish "3000:3000" mindr-interview-school
 ```
 
+_NB_: For Window user's you may need to replace \`pwd\` with the absolute path to this folder.
+
 3. You should be able to visit the app via http://localhost:3000
 
 #### Useful commands
