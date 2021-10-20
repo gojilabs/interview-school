@@ -12,9 +12,9 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get update 
 RUN apt-get install -y yarn
 
-ENV APP_HOME /app
-ADD . $APP_HOME
-WORKDIR $APP_HOME
+ENV SRC_HOME /src
+ADD . $SRC_HOME
+WORKDIR $SRC_HOME
 
 RUN gem install bundler:2.2.29
 RUN bundle install

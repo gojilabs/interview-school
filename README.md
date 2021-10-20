@@ -21,17 +21,19 @@ docker build . -t mindr-interview-school
 2. Start the container
 
 ```
-docker run --name interview-school -v "`pwd`:/app" --publish "3000:3000" interview-school
+docker run --name interview-school -v "`pwd`/app:/src/app" -v "`pwd`/public:/src/public" -v "`pwd`/test:/src/test" -v "`pwd`/config:/src/config" -v "`pwd`/db/migrate:/src/db/migrate" --publish "3000:3000" mindr-interview-school
 ```
 
 3. You should be able to visit the app via http://localhost:3000
 
 #### Useful commands
 
-_Stop container_: `docker container stop interview-school`
-_Start container_: `docker container start interview-school`
-_Run a migration_: `docker container exec interview-school ./bin/rails db:migrate`
-_Update FE deps_: `docker container exec interview-school yarn install`
+- _Stop container_: `docker container stop interview-school`
+- _Start container_: `docker container start interview-school`
+- _Create a migration_: `docker container exec interview-school ./bin/rails generate migration <migration command>`
+- _Run a migration_: `docker container exec interview-school ./bin/rails db:migrate`
+- _Run tests_: `docker container exec interview-school ./bin/rails test`
+- _Update FE deps_: `docker container exec interview-school yarn install`
 
 ### Manual set up
 
