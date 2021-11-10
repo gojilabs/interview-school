@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id         :integer          not null, primary key
+#  first_name :string           not null
+#  last_name  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 math_teacher:
   first_name: Math
   last_name: Teacher

@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id         :integer          not null, primary key
+#  first_name :string           not null
+#  last_name  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Teacher < ApplicationRecord
   has_many :teacher_subjects, dependent: :destroy
   has_many :subjects, through: :teacher_subjects
