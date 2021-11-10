@@ -20,16 +20,21 @@
 #  subject_id  (subject_id => subjects.id)
 #  teacher_id  (teacher_id => teachers.id)
 #
-math_teacher_math:
-  teacher: math_teacher
-  subject: math
-  level: 10
+FactoryBot.define do
+  factory :teacher_subject do
+    trait :math_teacher_math do
+      teacher factory: [:teacher, :math]
+      subject factory: [:subject, :math]
+    end
 
-math_and_english_teacher_math:
-  teacher: math_and_english_teacher
-  subject: math
-  level: 8
-math_and_english_teacher_english:
-  teacher: math_and_english_teacher
-  subject: english
-  level: 9
+    trait :math_and_english_teacher_math do
+      teacher factory: [:teacher, :math_and_english]
+      subject factory: [:subject, :math]
+    end
+
+    trait :math_and_english_teacher_english do
+      teacher factory: [:teacher, :math_and_english]
+      subject factory: [:subject, :english]
+    end
+  end
+end

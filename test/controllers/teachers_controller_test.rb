@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TeachersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @teacher = teachers(:math_teacher)
+    @teacher = create(:teacher)
   end
 
   test 'should get index' do

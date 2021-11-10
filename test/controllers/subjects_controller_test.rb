@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SubjectsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @subject = subjects(:math)
+    @subject = create(:subject)
   end
 
   test 'should get index' do
@@ -47,7 +47,7 @@ class SubjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should add teachers on create' do
-    english_teacher = teachers(:english_teacher)
+    english_teacher = create(:teacher, :english)
     post subjects_url, params: {subject: {description: @subject.description, name: @subject.name, teacher_ids: [english_teacher.id]}}
     subject = Subject.last
     assert_redirected_to subject_url(subject)
@@ -56,6 +56,7 @@ class SubjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should clear teachers on update' do
+    create(:teacher_subject, :math_teacher_math, subject: @subject)
     refute_equal 0, @subject.teachers.size
     patch subject_url(@subject), params: {subject: {teacher_ids: []}}
     assert_redirected_to subject_url(@subject)
@@ -63,10 +64,10 @@ class SubjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update teachers on update' do
-    math_subject = subjects(:math)
-    english_teacher = teachers(:english_teacher)
+    math_subject = create(:subject, :math)
+    english_teacher = create(:teacher, :english)
     patch subject_url(math_subject), params: {subject: {teacher_ids: [english_teacher.id]}}
-    assert_redirected_to subject_url(@subject)
-    assert_equal [english_teacher], @subject.teachers
+    assert_redirected_to subject_url(math_subject)
+    assert_equal [english_teacher], math_subject.teachers
   end
 end

@@ -16,7 +16,4 @@ class TeacherTest < ActiveSupport::TestCase
     assert teacher.errors[:first_name].present?
     assert teacher.errors[:last_name].present?
   end
-  test 'valid fixture' do
-    assert_valid_fixture teachers
-  end
 end
