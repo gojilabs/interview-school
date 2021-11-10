@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_103807) do
   create_table "teacher_subjects", force: :cascade do |t|
     t.integer "teacher_id", null: false
     t.integer "subject_id", null: false
-    t.integer "level"
+    t.integer "level", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_teacher_subjects_on_subject_id"
