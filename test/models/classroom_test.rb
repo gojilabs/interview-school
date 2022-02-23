@@ -9,7 +9,7 @@ class ClassroomTest < ActiveSupport::TestCase
     classroom = Classroom.new room_number: '', building: nil
     classroom.save
     assert classroom.errors[:room_number].present?
-    assert classroom.errors[:buiding].present?
+    assert classroom.errors[:building].present?
   end
 
   test 'validate successful save' do

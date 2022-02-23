@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 quad_1a:
-  room_number: 'A'
-  building: Quad
-  floor: '1'
+  room_number: "A"
+  building: quad
+  floor: "1"
 
 quad_g65:
-  room_number: '63'
-  building: Quad
-  floor: 'G'
+  room_number: "63"
+  building: quad
+  floor: "G"
 
 library_4c:
-  room_number: 'C'
-  floor: '4'
+  room_number: "C"
+  floor: "4"

@@ -2,7 +2,7 @@
 
 math_teacher_math_one_monday:
   section: math_teacher_math_one
-  classroom: library_4c
+  classroom: quad_1a
   day: 1
   start_time: 540
   duration: 50
@@ -33,7 +33,7 @@ english_teacher_english_one_tuesday:
   classroom: quad_1a
   day: 2
   start_time: 570
-  duration: 80  
+  duration: 80
 
 math_and_english_teacher_english_one_wednesday:
   section: math_and_english_teacher_english_one
@@ -47,4 +47,4 @@ math_and_english_teacher_english_one_thursday:
   classroom: quad_g65
   day: 3
   start_time: 720
-  duration: 80  
+  duration: 80
