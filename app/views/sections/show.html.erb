@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time start:</strong>
+  <%= @section.time_start %>
+</p>
+
+<p>
+  <strong>Time length:</strong>
+  <%= @section.time_length %>
+</p>
+
+<p>
+  <strong>Week days:</strong>
+  <%= @section.week_days %>
+</p>
+
+<p>
+  <strong>Classrooms:</strong>
+  <%= @section.classrooms.map { |x| x.numeral }.join(', ') %>
+</p>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

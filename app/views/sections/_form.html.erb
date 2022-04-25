@@ -1,0 +1,47 @@
+<%= form_with(model: section, local: true) do |form| %>
+  <% if section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(section.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+      <ul>
+        <% section.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :time_start %>
+    <%= form.time_field :time_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_length %>
+    <%= form.select :time_length, [50, 80], {}, multiple: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :week_days %>
+    <%= form.select :week_days, Section.week_days.keys.to_a %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :classroom_id %>
+    <%= form.select :classroom_id, options_from_collection_for_select(Classroom.all, :id, :numeral, -> (classroom) { @section.classroom_sections.map(&:classroom_id).include? classroom.id }), {}, multiple: false %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :teacher_id %>
+    <%= form.select :teacher_id, options_from_collection_for_select(Teacher.all, :id, :first_and_last_name, -> (teacher) { @section.teacher_sections.map(&:teacher_id).include? teacher.id }), {}, multiple: true %>
+  </div>
+
+  <div class='field'>
+    <%= form.label :subject_id %>
+    <%= form.select :subject_id, options_from_collection_for_select(Subject.all, :id, :name ), {}, multiple: false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
