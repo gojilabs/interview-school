@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: students
+#
+#  id         :integer          not null, primary key
+#  first_name :string           not null
+#  last_name  :string           not null
+#  level      :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  first_name: MyString
+  last_name: MyString
+  level: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  level: 1
