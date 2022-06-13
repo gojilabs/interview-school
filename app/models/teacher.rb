@@ -15,7 +15,7 @@ class Teacher < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
-  def first_and_last_name
+  def full_name
     "#{first_name} #{last_name}"
   end
 end

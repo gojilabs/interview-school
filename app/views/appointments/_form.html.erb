@@ -11,15 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :section_id %>
-    <%= form.text_field :section_id %>
-  </div>
+  <%= form.select :section_id, @sections.collect {|s| [ "#{s.teacher_subject.subject.name} - #{s.teacher_subject.teacher.full_name}: #{s.start_time_human} (#{s.duration})", s.id ] }, include_blank: true %>
 
   <div class="actions">
     <%= form.submit %>

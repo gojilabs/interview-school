@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
+  before_action :load_user
+
   def load_user
-    if cookie['interview_student_id']
-      @student = Student.find(cookie['interview_student_id'])
+    if cookies['interview_student_id']
+      @student = Student.find(cookies['interview_student_id'])
     else
-      @student = create(:student)
-      cookie['interview_student_id'] = @student.id
+      @student = FactoryBot.create(:student)
+      cookies['interview_student_id'] = @student.id
     end
   end
 

@@ -15,16 +15,20 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+    @sections = load_sections
   end
 
   # GET /appointments/1/edit
   def edit
+    @sections = load_sections
   end
 
   # POST /appointments
   # POST /appointments.json
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = Appointment.new(appointment_params.merge(student: student))
+    @sections = Section.joins(:teacher_subject => [:teacher, :subject])
+                       .where('teacher_subjects.level = :level', level: student.level)
 
     respond_to do |format|
       if @appointment.save
@@ -69,6 +73,11 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:student_id, :section_id)
+      params.require(:appointment).permit(:section_id)
     end
+
+  def load_sections
+    Section.joins(:teacher_subject => [:teacher, :subject])
+           .where('teacher_subjects.level = :level', level: student.level)
+  end
 end
