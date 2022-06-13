@@ -2,56 +2,73 @@
 #
 # Table name: sections
 #
-#  id           :integer          not null, primary key
-#  day          :integer          not null
-#  end_time     :integer          not null
-#  start_time   :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  classroom_id :integer          not null
-#  subject_id   :integer          not null
-#  teacher_id   :integer          not null
+#  id                 :integer          not null, primary key
+#  day                :integer          not null
+#  duration           :integer          not null
+#  end_time           :integer          not null
+#  start_time         :integer          not null
+#  start_time_human   :string           not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  classroom_id       :integer          not null
+#  teacher_subject_id :integer          not null
 #
 # Indexes
 #
-#  index_sections_on_classroom_id  (classroom_id)
-#  index_sections_on_subject_id    (subject_id)
-#  index_sections_on_teacher_id    (teacher_id)
+#  index_sections_on_classroom_id        (classroom_id)
+#  index_sections_on_teacher_subject_id  (teacher_subject_id)
 #
 # Foreign Keys
 #
-#  classroom_id  (classroom_id => classrooms.id)
-#  subject_id    (subject_id => subjects.id)
-#  teacher_id    (teacher_id => teachers.id)
+#  classroom_id        (classroom_id => classrooms.id)
+#  teacher_subject_id  (teacher_subject_id => teacher_subjects.id)
 #
 class Section < ApplicationRecord
-  attribute :start_time, :session_time
+  include HumanTime
 
-  belongs_to :teacher
-  belongs_to :subject
+  belongs_to :teacher_subject
   belongs_to :classroom
+
+  before_validation :set_start_time, :set_end_time
 
   validates :day, numericality: { in: 1..7 }
   validates :duration, inclusion: { in: [50, 80] }
-  validates :start_time, presence: { message: 'Start time is incorrect format' }
+  validates_presence_of :start_time_human
+  validates_format_of :start_time_human, :with => HUMAN_TIME_REGEX
+  validate :validate_time
+  validate :validate_intersections
 
-  validates :start_time, :numericality => {
-    only_integer: true,
-    greater_than_or_equal_to: 7 * 60 + 30,
-    message: 'start time should be greater than or equal to 7:30am'
-  }
+  private
 
-  validates :end_time, :numericality => {
-    only_integer: true,
-    less_than_or_equal_to: 22 * 60,
-    message: 'start time should be less than or equal to 10:00pm'
-  }
-
-  def duration
-    end_time - start_time
+  def set_start_time
+    self.start_time = cast_time(start_time_human)
   end
 
-  def duration=(val)
-    self.end_time = self.start_time + val
+  def set_end_time
+    if start_time
+      self.end_time = start_time + duration
+    end
+  end
+
+  def validate_time
+    if start_time
+      errors.add(:start_time_human, "can't be earlier than 7:30AM") if start_time < 7 * 60 + 30
+      errors.add(:duration, "can't continue later than 10:00pm") if end_time > 22 * 60
+    end
+  end
+
+  def validate_intersections
+    overlapped = teacher_subject
+                   .sections
+                   .where(day: day)
+                   .where(':start_time < end_time AND :end_time > end_time', {
+                     start_time: start_time,
+                     end_time: end_time
+                   }).first
+
+    if overlapped
+      message = "the section overlaps with existing one, subject: #{teacher_subject.subject.name}, day: #{overlapped.day}, time: #{overlapped.start_time_human}, duration: #{overlapped.duration}"
+      errors.add(:start_time_human, message)
+    end
   end
 end

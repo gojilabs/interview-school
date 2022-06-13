@@ -8,13 +8,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-math:
-  name: Math
-  description: All about numbers
+require 'faker'
 
-english:
-  name: English
-  description: Language that everyone knows
-
-subject_without_teacher:
-  name: Subject without teacher
+FactoryBot.define do
+  factory :subject do
+    name { Faker::Educator.course_name }
+  end
+end

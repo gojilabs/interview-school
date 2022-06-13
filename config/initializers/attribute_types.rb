@@ -1,1 +1,0 @@
-ActiveRecord::Type.register(:session_time, SessionTimeType)

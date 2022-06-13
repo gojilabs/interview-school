@@ -25,20 +25,21 @@ ActiveRecord::Schema.define(version: 2022_06_12_182428) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_classrooms_on_name", unique: true
   end
 
   create_table "sections", force: :cascade do |t|
-    t.integer "teacher_id", null: false
-    t.integer "subject_id", null: false
+    t.integer "teacher_subject_id", null: false
     t.integer "classroom_id", null: false
     t.integer "day", null: false
+    t.string "start_time_human", null: false
     t.integer "start_time", null: false
     t.integer "end_time", null: false
+    t.integer "duration", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_sections_on_classroom_id"
-    t.index ["subject_id"], name: "index_sections_on_subject_id"
-    t.index ["teacher_id"], name: "index_sections_on_teacher_id"
+    t.index ["teacher_subject_id"], name: "index_sections_on_teacher_subject_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -77,8 +78,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_182428) do
   add_foreign_key "appointments", "sections"
   add_foreign_key "appointments", "students"
   add_foreign_key "sections", "classrooms"
-  add_foreign_key "sections", "subjects"
-  add_foreign_key "sections", "teachers"
+  add_foreign_key "sections", "teacher_subjects"
   add_foreign_key "teacher_subjects", "subjects"
   add_foreign_key "teacher_subjects", "teachers"
 end

@@ -9,13 +9,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+require 'faker'
 
-one:
-  first_name: MyString
-  last_name: MyString
-  level: 1
-
-two:
-  first_name: MyString
-  last_name: MyString
-  level: 1
+FactoryBot.define do
+  factory :student do
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    level { 5 }
+  end
+end

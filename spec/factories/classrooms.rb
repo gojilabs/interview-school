@@ -7,10 +7,14 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require 'test_helper'
+# Indexes
+#
+#  index_classrooms_on_name  (name) UNIQUE
+#
+require 'faker'
 
-class ClassroomTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+FactoryBot.define do
+  factory :classroom do
+    name { Faker::Educator.campus }
+  end
 end

@@ -23,10 +23,12 @@
 #  classroom_id        (classroom_id => classrooms.id)
 #  teacher_subject_id  (teacher_subject_id => teacher_subjects.id)
 #
-require 'test_helper'
-
-class SectionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+FactoryBot.define do
+  factory :section do
+    day { Faker::Number.between(from: 1, to: 7) }
+    start_time_human { '11:00 AM' }
+    duration { 50 }
+    teacher_subject
+    classroom
+  end
 end
