@@ -1,14 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Student:</h3>
 <p>
-  <strong>Student:</strong>
-  <%= @appointment.student_id %>
+  <%= @appointment.student.full_name %>
 </p>
 
+<h3>Section:</h3>
 <p>
-  <strong>Section:</strong>
-  <%= @appointment.section_id %>
+  Subject: <%= @appointment.section.teacher_subject.subject.name %>
 </p>
+<p>
+  Teacher: <%= @appointment.section.teacher_subject.teacher.full_name %>
+</p>
+<p>
+  Time: every <%= Date::DAYNAMES[@appointment.section.day - 1] %> at <%= @appointment.section.start_time_human %>.
+</p>
+<p>
+  Duration: <%= @appointment.section.duration %> minutes.
+</p>
+
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
 <%= link_to 'Back', appointments_path %>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Appointments</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>Subject</th>
+    <th>Teacher</th>
+    <th>Schedule</th>
+    <th>Duration</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.section.teacher_subject.subject.name %></td>
+      <td><%= appointment.section.teacher_subject.teacher.full_name %></td>
+      <td>every <%= Date::DAYNAMES[appointment.section.day - 1] %> at <%= appointment.section.start_time_human %></td>
+      <td><%= appointment.section.duration %> minutes</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</body>
+</html>
