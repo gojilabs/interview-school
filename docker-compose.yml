@@ -1,0 +1,12 @@
+version: "2"
+services:
+  interview-school:
+    image: mindr-interview-school
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/src/app
+      - ./public:/src/public
+      - ./test:/src/test
+      - ./config:/src/config
+      - ./db/migrate:/src/db/migrate

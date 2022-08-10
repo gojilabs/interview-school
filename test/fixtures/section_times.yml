@@ -45,6 +45,6 @@ math_and_english_teacher_english_one_wednesday:
 math_and_english_teacher_english_one_thursday:
   section: math_and_english_teacher_english_one
   classroom: quad_g65
-  day: 3
+  day: 4
   start_time: 720
   duration: 80

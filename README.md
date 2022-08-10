@@ -20,34 +20,19 @@ docker build . -t mindr-interview-school
 
 2. Start the container
 
-For Mac:
-
 ```
-docker run --name interview-school -v "`pwd`/app:/src/app" -v "`pwd`/public:/src/public" -v "`pwd`/test:/src/test" -v "`pwd`/config:/src/config" -v "`pwd`/db/migrate:/src/db/migrate" --publish "3000:3000" mindr-interview-school
-```
-
-For Windows:
-
-```
-docker run --name interview-school -v "%cd%/app:/src/app" -v "%cd%/public:/src/public" -v "%cd%/test:/src/test" -v "%cd%/config:/src/config" -v "%cd%/db/migrate:/src/db/migrate" --publish "3000:3000" mindr-interview-school
-```
-
-For Linux:
-
-```
-docker run --name interview-school -v "$(pwd)/app:/src/app" -v "$(pwd)/public:/src/public" -v "$(pwd)/test:/src/test" -v "$(pwd)/config:/src/config" -v "$(pwd)/db/migrate:/src/db/migrate" --publish "3000:3000" mindr-interview-school
+docker compose up
 ```
 
 1. You should be able to visit the app via http://localhost:3000
 
 #### Useful commands
 
-- _Stop container_: `docker container stop interview-school`
-- _Start container_: `docker container start interview-school`
-- _Create a migration_: `docker container exec interview-school ./bin/rails generate migration <migration command>`
-- _Run a migration_: `docker container exec interview-school ./bin/rails db:migrate`
-- _Run tests_: `docker container exec interview-school ./bin/rails test`
-- _Update FE deps_: `docker container exec interview-school yarn install`
+- _Run rails console_: `docker compose exec interview-school bin/rails console`
+- _Create a migration_: `docker compose exec interview-school bin/rails generate migration <migration command>`
+- _Run a migration_: `docker compose exec interview-school bin/rails db:migrate`
+- _Run tests_: `docker compose exec interview-school bin/rails test`
+- _Update FE deps_: `docker compose exec interview-school yarn install`
 
 ### Manual set up
 
