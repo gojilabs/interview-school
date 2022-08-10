@@ -14,10 +14,10 @@
 
   <tbody>
     <% @student.enrolled_sections.each do |enrolled_section| %>
-      <% enrolled_section.section.times.each do |enrolled_section_times| %>
+      <% enrolled_section.times.each do |enrolled_section_times| %>
         <tr>
-          <td><%= enrolled_section.section.teacher_subject.subject.name %></td>
-          <td><%= enrolled_section.section.teacher_subject.teacher.first_and_last_name %></td>
+          <td><%= enrolled_section.teacher_subject.subject.name %></td>
+          <td><%= enrolled_section.teacher_subject.teacher.first_and_last_name %></td>
           <td><%= enrolled_section_times.classroom.room_number %></td>
           <td><%= enrolled_section_times.day %> <%= to_time_string(enrolled_section_times.start_time) %> - <%= to_time_string(enrolled_section_times.end_time) %></td>
         </tr>
