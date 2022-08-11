@@ -38,11 +38,11 @@ docker compose up
 
 If you prefer you can setup the repository directly on your computer.
 
-1. Download and install Ruby 2.6.3
+1. Download and install Ruby 2.6.10
 2. Install bundler
 
 ```
-gem install bundler:2.0.2
+gem install bundler:2.2.29
 ```
 
 3. Install yarn

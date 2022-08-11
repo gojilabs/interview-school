@@ -10,3 +10,5 @@ services:
       - ./test:/src/test
       - ./config:/src/config
       - ./db/migrate:/src/db/migrate
+      - ./Gemfile:/src/Gemfile
+      - ./Gemfile.lock:/src/Gemfile.lock

@@ -1,10 +1,10 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.10
 
 # Install Node
 RUN curl --silent --show-error --location https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get update
-RUN apt-get install -y nodejs
+RUN apt-get install -y python nodejs
 
 # Install yarn
 RUN npm install -g yarn
