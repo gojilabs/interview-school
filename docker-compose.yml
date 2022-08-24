@@ -1,14 +1,14 @@
-version: "2"
+version: "3.8"
 services:
   interview-school:
     image: mindr-interview-school
     ports:
       - "3000:3000"
     volumes:
-      - ./app:/src/app
-      - ./public:/src/public
-      - ./test:/src/test
-      - ./config:/src/config
-      - ./db/migrate:/src/db/migrate
-      - ./Gemfile:/src/Gemfile
-      - ./Gemfile.lock:/src/Gemfile.lock
+      - ./app:/src/app:delegated
+      - ./public:/src/public:cached
+      - ./test:/src/test:delegated
+      - ./config:/src/config:cached
+      - ./db/migrate:/src/db/migrate:cached
+      - ./Gemfile:/src/Gemfile:cached
+      - ./Gemfile.lock:/src/Gemfile.lock:cached
